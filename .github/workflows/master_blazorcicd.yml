@@ -69,11 +69,8 @@ jobs:
           dotnet-version: '5.0.x'
           include-prerelease: true
 
-     - name: Build with dotnet
-       run: dotnet build --configuration Release
-         
      - name: Run Tests
-       run: dotnet test --configuration Release --no-build
+       run: dotnet test --configuration Release
         
   deployToProduction: 
     runs-on: windows-latest
