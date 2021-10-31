@@ -61,8 +61,13 @@ jobs:
    needs: deployToTesting
 
    steps:
-     - name: Run Tests
-       run: dotnet test --configuration Release
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v2
+      with:
+          name: .net-app
+          
+    - name: Run Tests
+      run: dotnet test --configuration Release
         
   deployToProduction: 
     runs-on: windows-latest
