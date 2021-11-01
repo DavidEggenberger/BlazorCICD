@@ -19,8 +19,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\BlazorCICD\Web\Shared\Web.Shared.csproj" />
-  </ItemGroup>
-
 </Project>
