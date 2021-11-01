@@ -55,12 +55,12 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICEPUBLISHPROFILEBLAZORCICDTESTING }}
           package: .
-  
+        
   test:
-   runs-on: windows-latest
-   needs: deployToTesting
+    runs-on: windows-latest
+    needs: deployToTesting
 
-   steps:
+    steps:
      - uses: actions/checkout@v2
 
      - name: Set up .NET Core
@@ -69,11 +69,8 @@ jobs:
           dotnet-version: '5.0.x'
           include-prerelease: true
 
-     - name: Build with dotnet
-       run: dotnet build --configuration Release
-         
      - name: Run Tests
-       run: dotnet test --configuration Release --no-build
+       run: dotnet test --configuration Release      
         
   deployToProduction: 
     runs-on: windows-latest
