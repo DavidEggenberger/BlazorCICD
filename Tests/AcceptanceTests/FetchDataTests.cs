@@ -19,11 +19,9 @@ namespace AcceptanceTests
             //Arrange
             EdgeDriver edgeDriver = await edgeDriverFactoryFixture.CreateEdgeDriverForPageAsync("fetchdata");
             //Act
-            IWebElement counterElement = edgeDriver.FindElement(By.CssSelector("button.btn.btn-primary"));
-            counterElement.Click();
+            var fetchDataRows = edgeDriver.FindElements(By.CssSelector("table tbody tr"));    
             //Assert
-            IWebElement countDisplayElement = edgeDriver.FindElement(By.CssSelector(".content.px-4 p"));
-            Assert.True(countDisplayElement.Text == "Current count: 1");
+            Assert.True(fetchDataRows.Count == 5);
         }
     }
 }
